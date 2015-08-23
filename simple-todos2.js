@@ -1,7 +1,6 @@
 Tasks = new Mongo.Collection("tasks");
 
 if (Meteor.isServer) {
-  // This code only runs on the server
  // Only publish tasks that are public or belong to the current user
   Meteor.publish("tasks", function () {
     return Tasks.find({
@@ -47,7 +46,6 @@ if (Meteor.isServer) {
 if (Meteor.isClient) {
 
   Meteor.subscribe("tasks");
-
   // This code only runs on the client
   Template.body.helpers({
     tasks: function () {
